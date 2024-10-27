@@ -1,40 +1,142 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Contact Management Backend App
+
+This is a simple contact management backend application built with **Next.js** and **SQLite**. The application provides RESTful APIs to manage contacts, allowing users to create, read, and store contact information such as name, email, phone number, and address.
+
+## Features
+
+- **RESTful API**: Provides endpoints to interact with contact data.
+- **CRUD Operations**:
+  - **Create**: Add new contacts.
+  - **Read**: Retrieve a list of contacts.
+- **SQLite Database**: Uses SQLite for lightweight data storage.
+
+## Technologies Used
+
+- **Next.js**: A React framework for building server-side rendered applications.
+- **SQLite**: A lightweight, serverless database engine.
+- **Node.js**: JavaScript runtime used for building the API.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
+- Node.js (version 14 or later)
+- npm or yarn
+- SQLite
+
+### Installation
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone <repository-url>
+   cd contact-management-backend
+
+Here's a detailed README file template for your contact management backend app using Next.js and SQLite. You can customize it further based on your specific requirements and project details.
+
+markdown
+Copy code
+# Contact Management Backend App
+
+This is a simple contact management backend application built with **Next.js** and **SQLite**. The application provides RESTful APIs to manage contacts, allowing users to create, read, and store contact information such as name, email, phone number, and address.
+
+## Features
+
+- **RESTful API**: Provides endpoints to interact with contact data.
+- **CRUD Operations**:
+  - **Create**: Add new contacts.
+  - **Read**: Retrieve a list of contacts.
+- **SQLite Database**: Uses SQLite for lightweight data storage.
+
+## Technologies Used
+
+- **Next.js**: A React framework for building server-side rendered applications.
+- **SQLite**: A lightweight, serverless database engine.
+- **Node.js**: JavaScript runtime used for building the API.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 14 or later)
+- npm or yarn
+- SQLite
+
+### Installation
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone <repository-url>
+   cd contact-management-backend
+Install Dependencies:
+
+bash
+Copy code
+npm install
+Setup the Database:
+
+Ensure you have an SQLite database file (database.sqlite) in the root directory of the project. You can create the file using a tool like DB Browser for SQLite or by executing SQL commands directly.
+
+Create the contacts Table:
+
+Run the following SQL commands to create the contacts table in your SQLite database:
+
+sql
+Copy code
+CREATE TABLE contacts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    phone TEXT NOT NULL,
+    address TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+Running the Application
+To start the Next.js development server, run:
+
+bash
+Copy code
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The server will start at http://localhost:3000.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+API Endpoints
+GET /api/contacts
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Description: Fetch all contacts.
+Response: Returns an array of contact objects.
+POST /api/contacts
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Description: Add a new contact.
+Request Body:
+json
+Copy code
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "phone": "555-1234",
+  "address": "456 Elm Street"
+}
+Response: Returns the newly created contact object.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+Example Usage with Postman
+Get All Contacts:
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Method: GET
+URL: http://localhost:3000/api/contacts
+Response: Array of contact objects.
+Create a New Contact:
 
-## Learn More
+Method: POST
+URL: http://localhost:3000/api/contacts
+Body: (raw JSON)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+{
+  "name": "Jane Doe",
+  "email": "jane@example.com",
+  "phone": "555-5678",
+  "address": "789 Pine Street"
+}
+Response: Newly created contact object.
+Contributing
+If you'd like to contribute to this project, please fork the repository and submit a pull request. Any contributions, suggestions, or improvements are welcome!
