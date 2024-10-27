@@ -34,8 +34,6 @@ This is a simple contact management backend application built with **Next.js** a
 
 Here's a detailed README file template for your contact management backend app using Next.js and SQLite. You can customize it further based on your specific requirements and project details.
 
-markdown
-Copy code
 # Contact Management Backend App
 
 This is a simple contact management backend application built with **Next.js** and **SQLite**. The application provides RESTful APIs to manage contacts, allowing users to create, read, and store contact information such as name, email, phone number, and address.
@@ -43,10 +41,123 @@ This is a simple contact management backend application built with **Next.js** a
 ## Features
 
 - **RESTful API**: Provides endpoints to interact with contact data.
-- **CRUD Operations**:
-  - **Create**: Add new contacts.
-  - **Read**: Retrieve a list of contacts.
-- **SQLite Database**: Uses SQLite for lightweight data storage.
+- API Endpoints
+Contacts
+Create a Contact
+Endpoint: POST /api/contacts
+Request Body:
+json
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "phone": "123-456-7890",
+  "address": "123 Main St"
+}
+Response:
+201 Created
+json
+
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john@example.com",
+  "phone": "123-456-7890",
+  "address": "123 Main St"
+}
+Read Contacts
+Endpoint: GET /api/contacts
+Response:
+200 OK
+json
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@example.com",
+    "phone": "123-456-7890",
+    "address": "123 Main St"
+  }
+]
+Update a Contact
+Endpoint: PUT /api/contacts/:id
+Request Body:
+json
+{
+  "name": "Jane Doe",
+  "email": "jane@example.com",
+  "phone": "098-765-4321",
+  "address": "456 Elm St"
+}
+Response:
+200 OK
+json
+Copy code
+{
+  "id": 1,
+  "name": "Jane Doe",
+  "email": "jane@example.com",
+  "phone": "098-765-4321",
+  "address": "456 Elm St"
+}
+
+Delete a Contact
+Endpoint: DELETE /api/contacts/:id
+
+Response:
+204 No Content
+Users
+Create a User
+Endpoint: POST /api/users
+Request Body:
+json
+{
+  "username": "user1",
+  "password": "password123",
+  "email": "user1@example.com"
+}
+Response:
+201 Created
+json
+{
+  "id": 1,
+  "username": "user1",
+  "email": "user1@example.com"
+}
+Read Users
+Endpoint: GET /api/users
+Response:
+200 OK
+json
+[
+  {
+    "id": 1,
+    "username": "user1",
+    "email": "user1@example.com"
+  }
+]
+Update a User
+Endpoint: PUT /api/users/:id
+Request Body:
+json
+{
+  "username": "user2",
+  "password": "newpassword",
+  "email": "user2@example.com"
+}
+Response:
+200 OK
+json
+{
+  "id": 1,
+  "username": "user2",
+  "email": "user2@example.com"
+}
+Delete a User
+Endpoint: DELETE /api/users/:id
+Response:
+204 No Content
+
+ **SQLite Database**: Uses SQLite for lightweight data storage.
 
 ## Technologies Used
 
@@ -69,10 +180,9 @@ This is a simple contact management backend application built with **Next.js** a
    ```bash
    git clone <repository-url>
    cd contact-management-backend
+   
 Install Dependencies:
 
-bash
-Copy code
 npm install
 Setup the Database:
 
