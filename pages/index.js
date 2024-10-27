@@ -31,12 +31,6 @@ export default function Home() {
 
       <main className="p-8">
         <h1 className="text-2xl font-bold mb-4">Welcome to the Contact Management App</h1>
-        
-        <div>
-          <button onClick={() => console.log('Login clicked')}>Login</button>
-          <button onClick={() => console.log('Register clicked')}>Register</button>
-        </div>
-
         <button
           onClick={handleDownload}
           className="bg-blue-500 text-white py-2 px-4 rounded"
